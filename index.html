@@ -24,32 +24,34 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 <script>
 // If you want to add new words to be used to generate names, add them to the section below within the square brackets. All words must be within speech marks and each word must be seperated by a comma, all notes must begin with //
 animalNames = [
-//time
-"day","night","dusk","dusky","dawn","midday","midnight","eve","light","bright","shine","shining","dark","dim","shade","shadow","spring","summer","autumn","fall","winter",
-//celestial
-"star","sun","moon","solar","lunar","eclipse","equinox","beam","ray","mercury","venus","earth","mars","jupiter","saturn","neptune","pluto","angel","angelic","devil","devilish","demon","demonic","god",
+//time/season
+"day","night","dusk","dusky","dawn","midday","midnight","twilight","eve","evening","morning","spring","summer","autumn","fall","winter",
+//celestial/magic
+"star","sun","moon","solar","lunar","eclipse","equinox","beam","ray","space","mercury","venus","earth","mars","jupiter","saturn","neptune","pluto","angel","angelic","devil","devilish","demon","demonic","god","dragon","zombie","magic","curse","spell","hex","aura","aurora",
 //weather
 "sunny","cloud","cloudy","rain","rainy","storm","stormy","thunder","lightning","snow","snowy","frost","frosty","frosted","mist","misty",
 //element
-"fire","firey","burn","burny","blaze","blazing","cinder","ash","ashy","soot","spark","smoke","water","wave","slosh","splash","splat","splatter","flow","ice","icy","air","wind","windy","breeze","breezy","puff","electric","amp","ohm","current",
+"fire","firey","burn","burny","blaze","blazing","flare","cinder","ash","ashy","soot","spark","smoke","water","wave","slosh","splash","splat","splatter","drop","droplet","tear","flow","ice","icy","air","wind","windy","breeze","breezy","puff","electric","amp","ohm","current",
 //color
-"brown","red","orange","yellow","lime","green","aqua","cyan","turquioze","blue","violet","purple","magenta","lavender","pink","white","beige","tawny","grey","black",
-// material
-"platinum","gold","silver","bronze","metal","metallic","wood","wooden","plastic","boulder","rock","pebble","dirt","mud",
-// location
+"brown","red","orange","yellow","lime","green","aqua","cyan","turquoise","blue","violet","purple","magenta","lavender","pink","white","beige","tawny","grey","black","light","bright","shine","shining","dark","dim","dull","shade","shadow",
+//material
+"platinum","gold","silver","bronze","metal","metallic","wood","wooden","plastic","glass","glassy","boulder","rock","pebble","dirt","mud",
+//location
 "land","sky","mountain","sea","ocean","river","pool","pond","lake","swamp","bog","marsh","arctic","polar","forest","jungle",
+//direction
+"north","south","east","west","up","down","left","right","forward","backward","high","low","rise","fall",
 //animal
-"wolf","pup","dog","puppy","mutt","cat","kitten","cougar","tiger","lion","leopard","jaguar","sheep","ram","ewe","lamb","cow","bull","calf","bison","moose","elk","buck","fawn","deer","mule","horse","pony","stallion","mare","foal","bear","grizzly","squirrel","mouse","vole","mole","rabbit","bunny","bird","crow","raven","corvid","lark","jay","pigeon","dove","falcon","eagle","hawk","owl","bug","ant","bee","bumble","wasp","moth","fly","louse","lice","flea",
+"wolf","pup","dog","puppy","mutt","cat","kitten","cougar","tiger","lion","leopard","jaguar","sheep","ram","ewe","lamb","cow","bull","calf","bison","moose","elk","buck","fawn","deer","mule","horse","pony","stallion","mare","foal","bear","grizzly","squirrel","mouse","vole","mole","rabbit","bunny","bird","fowl","crow","raven","corvid","lark","jay","pigeon","dove","falcon","eagle","hawk","owl","frog","toad","snake","worm","bug","ant","bee","bumble","wasp","moth","fly","lice","flea",
 //plant
-"tree","maple","oak","pine","willow","alder","leaf","branch","twig","bush","bramble","ivy","vine","root","grass","moss","mossy","fern","heather","flower","daisy","poppy","marigold","rose","lotus","lily","berry","apple","cherry",
-//food
+"tree","maple","oak","pine","willow","alder","leaf","branch","twig","bush","bramble","ivy","vine","root","grass","straw","moss","mossy","fern","heather","grain","barley","wheat","flower","daisy","poppy","marigold","rose","lotus","lily","berry","apple","cherry","truffle",
+//human food
 "waffle","toast","toasted","pie","milk","syrup","honey","sap",
-//object
-"lamp","table","chair","wall","roof","house","home","bed","nest","burrow",
+//human/other objects
+"log","plank","brick","lamp","table","chair","wall","roof","house","home","bed","nest","burrow","blade","razor","knife","fork","spoon","chisel","shovel","spade","clip","clipper","bow","arrow","gun","shot","bullet","wheel","tyre","car","bus","truck","train","plane","boat","ship",
 //body part
-"ear","ears","head","eye","cheek","cheeks","whisker","beard","nose","snout","snoot","jaw","fang","tooth","mouth","breath","breathe","neck","pelt","hide","fur","hair","fringe","bob","belly","heart","spine","spiny","leg","foot","feet","paw","wing","wings","feather","plume","fin","claw","toe","pad","bean","tail","tassel",
+"ear","head","skull","bone","eye","cheek","cheeks","whisker","beard","nose","snout","snoot","jaw","fang","tooth","mouth","breath","breathe","pelt","hide","fur","hair","fringe","bob","belly","heart","spine","spiny","leg","foot","feet","paw","wing","wings","feather","plume","fin","claw","toe","pad","bean","tail","tassel",
 //pattern/shape
-"stripe","striped","spot","dot","splotch","freckle","speckle","dapple","line","shape","circle","square","cube","sphere","triangle","pyramid","hex","hexagon","round","arc",
+"stripe","striped","spot","dot","splotch","freckle","speckle","dapple","line","shape","circle","square","cube","sphere","triangle","pyramid","hexagon","round","arc","arch",
 //number/amount
 "first","second","third","half","quarter","phase","part","partial","dual","duo","triple","less","more",
 //greek alphabet
@@ -57,11 +59,24 @@ animalNames = [
 // emotion
 "happy","hope","dread","joy","sad","angry","anger","mourn",
 //action
-"walk","walker","run","runner","jump","pounce","leap","clamber","climb","play","dance","dancer","sing","song","music","scratch","hug","kiss","hurt","bite","wound","scar","cry","howl","yowl","yip","bark","growl","snarl","squeak","whine","whistle","yawn","drool","spit","look","sight","see","glare","gaze","glower","hear","listen","dip","dipper","rise","fall",
+"walk","walker","sneak","sneaky","run","runner","jump","jumpy","pounce","leap","tackle","clamber","climb","play","dance","dancer","hug","kiss","cut","cutter","scratch","hurt","bite","wound","scar","wort","yawn","sniff","snarf","drool","spit","look","sight","see","glare","gaze","glower","hear","listen","dip","dipper",
+//sounds
+"quiet","loud","echo","scream","screech","trill","sing","song","music","cry","howl","yowl","chirp","tweet","yip","bark","growl","snarl","squeak","whine","groan","whistle","cough","hack","sneeze","boom","crash",
 //adjective
-"nice","mean","cheeky","bold","cautious","scared","scary","energetic","lazy","social","loner","lone","trick","tricky","rough","soft","hard","smooth"
+"kind","nice","friend","gentle","charm","mean","cruel","cheeky","silly","wit","witty","fool","foul","proud","petty","bold","brave","cautious","scared","scary","energetic","lazy","social","loner","lone","luck","lucky","unlucky","fate","trick","tricky","clean","clear","buff","lean","thin","rough","soft","tough","smooth","silk","silky","tall","short","flat","king","queen"
 ]; // the last word in the list shouldn't have a comma afterwards
 
+// If you want to add new letters to be used to generate unique names, add them to the section below within the square brackets. v is for vowels, c is for consenents, the number dictates where in the string each letter can appear. Names are then formed from one, two or three of these 2-3 letter strings. All letters must be within speech marks and each string must be seperated by a comma, all notes must begin with //
+// while you could fully fill out each array of letters, keep a careful eye on what letters are in which places, having the wrong ones in the wrong place can lead to inappropriate names being generated, something that becomes very hard to moderate with so many different combinations
+c1 = ["b","d","g","j","k","l","m","n","q","s","t","v","w","z"]
+c2 = ["b","d","g","j","k","l","m","n","q","s","t","v","w","z"]
+c3 = ["h","l","m","n","p","r","t","v","w","z"]
+v1 = ["a","e","i","o","u"]
+v2 = ["a","e","i","o","u"]
+v3 = ["a","e","i","o","u","y"]
+// letters - a b c d e f g h i j k l m n o p q r s t u v w x y z 
+// consenents - b c d f g h j k l m n p q r s t v w x z 
+// vowels - a e i o u y 
 
 function generateNames() {
 // change text in name field, clearing prev names/default text
@@ -127,6 +142,181 @@ while (namesToGenerate > 0) {
 document.getElementById("nameListSize").innerHTML = "<i>Generated from a list of " + animalNames.length + " words!</i>";
 }
 
+
+function generateUniqueNames() {
+// change text in name field, clearing prev names/default text
+document.getElementById("uniqueNameField").innerHTML = "<b>Names: </b><br>";
+// get data from input fields
+uniqueNamesToGenerate = document.getElementById("uniqueNamesToGenerate").valueAsNumber;
+stringWeights = [
+document.getElementById("stringWeight1").valueAsNumber, 
+document.getElementById("stringWeight2").valueAsNumber, 
+document.getElementById("stringWeight3").valueAsNumber
+];
+uniqueSumOfWeights = stringWeights[0] + stringWeights[1] + stringWeights[2];
+uniqueNameType = -1;
+// generates amount of names specified
+while (uniqueNamesToGenerate > 0) {
+	// does two word names if all odds are 0
+	if (uniqueSumOfWeights == 0) {
+		uniqueNameType = 2;
+	}
+	//weighted choice if odds are selected
+	else {
+		roll = Math.floor(Math.random() * uniqueSumOfWeights + 1);
+		i = 0;
+		done = false;
+		while (i < stringWeights.length && done == false) {
+			if (roll <= stringWeights[i]) {
+				uniqueNameType = i + 1;
+				done = true;
+			}
+			roll -= stringWeights[i];
+			i += 1;
+		}
+	}
+	//generate name with one, two or three words
+	name = "name"
+	switch (uniqueNameType) {
+		case 1: // short name
+			roll = Math.floor(Math.random() * 2);
+			if (roll == 0) { // begin with v
+				name = v1[Math.floor(Math.random() * v1.length)];
+				// then c
+				name += c2[Math.floor(Math.random() * c2.length)];
+				// roll for additional v or none
+				roll = Math.floor(Math.random() * 2);
+				if (roll == 0) { name += v3[Math.floor(Math.random() * v3.length)]; } 
+			}
+			else { //begin with c
+				name = c1[Math.floor(Math.random() * c1.length)];
+				// then v
+				name += v2[Math.floor(Math.random() * v2.length)]; 
+				// roll for additional v or c or none
+				roll = Math.floor(Math.random() * 3);
+				if (roll == 0) { name += c3[Math.floor(Math.random() * c3.length)]; } 
+				else if (roll == 1) { name += v3[Math.floor(Math.random() * v3.length)]; }
+			}
+			break;
+		case 2: // medium name
+			roll = Math.floor(Math.random() * 2);
+			last = ""; //tracks whether last letter was a v or c
+			if (roll == 0) { // begin with v
+				name = v1[Math.floor(Math.random() * v1.length)];
+				// then c
+				name += c2[Math.floor(Math.random() * c2.length)];
+				last = "c";
+				// roll for additional v or none
+				roll = Math.floor(Math.random() * 2);
+				if (roll == 0) { name += v3[Math.floor(Math.random() * v3.length)]; last = "v"; } 
+			}
+			else { //begin with c
+				name = c1[Math.floor(Math.random() * c1.length)];
+				// then v
+				name += v2[Math.floor(Math.random() * v2.length)]; 
+				last = "v";
+				// roll for additional v or c or none
+				roll = Math.floor(Math.random() * 3);
+				if (roll == 0) { name += c3[Math.floor(Math.random() * c3.length)]; last = "c";} 
+				else if (roll == 1) { name += v3[Math.floor(Math.random() * v3.length)]; last = "v";}
+			}
+			//second part
+			if (last == "c") { // begin with v
+				name += v1[Math.floor(Math.random() * v1.length)];
+				// then c
+				name += c2[Math.floor(Math.random() * c2.length)];
+				last = "c";
+				// roll for additional v or none
+				roll = Math.floor(Math.random() * 2);
+				if (roll == 0) { name += v3[Math.floor(Math.random() * v3.length)]; last = "v"; } 
+			}
+			else { //begin with c
+				name += c1[Math.floor(Math.random() * c1.length)];
+				// then v
+				name += v2[Math.floor(Math.random() * v2.length)]; 
+				last = "v";
+				// roll for additional v or c or none
+				roll = Math.floor(Math.random() * 3);
+				if (roll == 0) { name += c3[Math.floor(Math.random() * c3.length)]; last = "c"; } 
+				else if (roll == 1) { name += v3[Math.floor(Math.random() * v3.length)]; last = "v"; }
+			}
+			break;
+		case 3: // long name
+			roll = Math.floor(Math.random() * 2);
+			last = ""; //tracks whether last letter was a v or c
+			if (roll == 0) { // begin with v
+				name = v1[Math.floor(Math.random() * v1.length)];
+				// then c
+				name += c2[Math.floor(Math.random() * c2.length)];
+				last = "c";
+				// roll for additional v or none
+				roll = Math.floor(Math.random() * 2);
+				if (roll == 0) { name += v3[Math.floor(Math.random() * v3.length)]; last = "v"; } 
+			}
+			else { //begin with c
+				name = c1[Math.floor(Math.random() * c1.length)];
+				// then v
+				name += v2[Math.floor(Math.random() * v2.length)]; 
+				last = "v";
+				// roll for additional v or c or none
+				roll = Math.floor(Math.random() * 3);
+				if (roll == 0) { name += c3[Math.floor(Math.random() * c3.length)]; last = "c";} 
+				else if (roll == 1) { name += v3[Math.floor(Math.random() * v3.length)]; last = "v";}
+			}
+			//second part
+			if (last == "c") { // begin with v
+				name += v1[Math.floor(Math.random() * v1.length)];
+				// then c
+				name += c2[Math.floor(Math.random() * c2.length)];
+				last = "c";
+				// roll for additional v or none
+				roll = Math.floor(Math.random() * 2);
+				if (roll == 0) { name += v3[Math.floor(Math.random() * v3.length)]; last = "v"; } 
+			}
+			else { //begin with c
+				name += c1[Math.floor(Math.random() * c1.length)];
+				// then v
+				name += v2[Math.floor(Math.random() * v2.length)]; 
+				last = "v";
+				// roll for additional v or c or none
+				roll = Math.floor(Math.random() * 3);
+				if (roll == 0) { name += c3[Math.floor(Math.random() * c3.length)]; last = "c"; } 
+				else if (roll == 1) { name += v3[Math.floor(Math.random() * v3.length)]; last = "v"; }
+			}
+			//third part
+			if (last == "c") { // begin with v
+				name += v1[Math.floor(Math.random() * v1.length)];
+				// then c
+				name += c2[Math.floor(Math.random() * c2.length)];
+				last = "c";
+				// roll for additional v or none
+				roll = Math.floor(Math.random() * 2);
+				if (roll == 0) { name += v3[Math.floor(Math.random() * v3.length)]; last = "v"; } 
+			}
+			else { //begin with c
+				name += c1[Math.floor(Math.random() * c1.length)];
+				// then v
+				name += v2[Math.floor(Math.random() * v2.length)]; 
+				last = "v";
+				// roll for additional v or c or none
+				roll = Math.floor(Math.random() * 3);
+				if (roll == 0) { name += c3[Math.floor(Math.random() * c3.length)]; last = "c"; } 
+				else if (roll == 1) { name += v3[Math.floor(Math.random() * v3.length)]; last = "v"; }
+			}
+			break;
+		default:
+			name = "error generating name :("
+			break;
+	}
+	//make the first letter of the name capitalized
+	formattedName = "\n" + name[0].toUpperCase() + name.slice(1)
+	//add new name onto the list
+	document.getElementById("uniqueNameField").append(formattedName);
+	uniqueNamesToGenerate -= 1;
+}
+// trying to get an accurate count of all the combinations of letters would be quite difficult given the six different lists and how conditional many of the results are, it could be done, but i don't have the time currently
+document.getElementById("uniqueNameListSize").innerHTML = "<i>Generated from random letters with uncountable combinations!</i>";
+}
 </script>
 <style>
 body {
@@ -140,29 +330,34 @@ h1, h2, h3, p {
 	opacity: 1;
 	color: black;
 }
-#nameField {
+#nameField, #uniqueNameField {
 	white-space: pre-line;
 }
 div {
+	text-align: center;
+	margin: 0 auto;
+}
+.visibleDiv {
 	background-color: #d7c4ed;
 	border: solid black 1px;
 	padding: 5px;
 	max-width: 500px;
-	text-align: center;
-	margin: 0 auto;
+	display: block;
 }
 </style>
 </head>
 <body>
 <br>
-<div>
+<div class="visibleDiv">
 <h1>Animal Name Generator</h1>
 <p style="font-style: italic">By AnnoyedWoof356</p>
-<p>Specify how many names you want, then enter the chances of generating names using one, two or three words. If all categories are set to 0, all names will generate using two words.</p>
+<p>An html-based program that uses a list of words or strings of letters to generate fun and unique names to be used in games, character creation and roleplaying.</p>
 </div>
 <br>
 <div>
-<br>
+<div class="visibleDiv">
+<h2>Generate Name from words</h2>
+<p>1-3 random words will be used to generate a unique name! Specify how many names you want, then enter the chances of generating names using one, two or three words. If all categories are set to 0, all names will generate using two words.</p>
 <label for="namesToGenerate">Names to generate:</label>
 <input type="number" id="namesToGenerate" value="20" min="0" max="100" step="1"></input>
 <br>
@@ -179,14 +374,42 @@ div {
 <button onclick="generateNames()">Generate Names!</button>
 <br>
 <br>
+<p id="nameField"><i>Press the button to generate names!</i></p>
+<p id="nameListSize"><i></i></p>
 </div>
 <br>
-<div>
-<p id="nameField">Names will generate here.</p>
-<p id="nameListSize"></p>
+<div class="visibleDiv">
+<h2>Generate Name from string</h2>
+<p>Strings of letters will be used to generate a unique name! Specify how many names you want, then enter the chances of generating a short, medium or long name. If all categories are set to 0, all names will be medium length.</p>
+<label for="uniqueNamesToGenerate">Names to generate:</label>
+<input type="number" id="uniqueNamesToGenerate" value="20" min="0" max="100" step="1"></input>
+<br>
+<label for="stringWeight1">Short name odds:</label>
+<input type="number" id="stringWeight1" value="1" min="0" max="100" step="1"></input>
+<br>
+<label for="stringWeight2">Medium name odds:</label>
+<input type="number" id="stringWeight2" value="3" min="0" max="100" step="1"></input>
+<br>
+<label for="stringWeight3">Long name odds:</label>
+<input type="number" id="stringWeight3" value="1" min="0" max="100" step="1"></input>
+<br>
+<br>
+<button onclick="generateUniqueNames()">Generate Names!</button>
+<br>
+<br>
+<p id="uniqueNameField"><i>Press the button to generate names!</i></p>
+<p id="uniqueNameListSize"><i></i></p>
+</div>
+</div>
+<br>
+<div class="visibleDiv">
+<p>Want to download this to use offline or create your own version? The source code can be found <a href="https://github.com/AnnoyedWoof356/animal-name-generator">here!</a> If you have any problems or suggestions leave a comment on the github page or send me a message on discord!</p>
+<p><i>While I've taken lots of care to prevent it, please let me know if the generator produces any names that may be inappropriate and I'll remove them.</i></p>
 </div>
 <br>
 <br>
 <br>
 </body>
 </html>
+
+
