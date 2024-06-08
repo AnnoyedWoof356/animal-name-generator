@@ -1,0 +1,192 @@
+<!--
+Animal Name Generator
+Copyright (C) 2024  AnnoyedWoof356
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <https://www.gnu.org/licenses/>.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Animal Name Generator</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+// If you want to add new words to be used to generate names, add them to the section below within the square brackets. All words must be within speech marks and each word must be seperated by a comma, all notes must begin with //
+animalNames = [
+//time
+"day","night","dusk","dusky","dawn","midday","midnight","eve","light","bright","shine","shining","dark","dim","shade","shadow","spring","summer","autumn","fall","winter",
+//celestial
+"star","sun","moon","solar","lunar","eclipse","equinox","beam","ray","mercury","venus","earth","mars","jupiter","saturn","neptune","pluto","angel","angelic","devil","devilish","demon","demonic","god",
+//weather
+"sunny","cloud","cloudy","rain","rainy","storm","stormy","thunder","lightning","snow","snowy","frost","frosty","frosted","mist","misty",
+//element
+"fire","firey","burn","burny","blaze","blazing","cinder","ash","ashy","soot","spark","smoke","water","wave","slosh","splash","splat","splatter","flow","ice","icy","air","wind","windy","breeze","breezy","puff","electric","amp","ohm","current",
+//color
+"brown","red","orange","yellow","lime","green","aqua","cyan","turquioze","blue","violet","purple","magenta","lavender","pink","white","beige","tawny","grey","black",
+// material
+"platinum","gold","silver","bronze","metal","metallic","wood","wooden","plastic","boulder","rock","pebble","dirt","mud",
+// location
+"land","sky","mountain","sea","ocean","river","pool","pond","lake","swamp","bog","marsh","arctic","polar","forest","jungle",
+//animal
+"wolf","pup","dog","puppy","mutt","cat","kitten","cougar","tiger","lion","leopard","jaguar","sheep","ram","ewe","lamb","cow","bull","calf","bison","moose","elk","buck","fawn","deer","mule","horse","pony","stallion","mare","foal","bear","grizzly","squirrel","mouse","vole","mole","rabbit","bunny","bird","crow","raven","corvid","lark","jay","pigeon","dove","falcon","eagle","hawk","owl","bug","ant","bee","bumble","wasp","moth","fly","louse","lice","flea",
+//plant
+"tree","maple","oak","pine","willow","alder","leaf","branch","twig","bush","bramble","ivy","vine","root","grass","moss","mossy","fern","heather","flower","daisy","poppy","marigold","rose","lotus","lily","berry","apple","cherry",
+//food
+"waffle","toast","toasted","pie","milk","syrup","honey","sap",
+//object
+"lamp","table","chair","wall","roof","house","home","bed","nest","burrow",
+//body part
+"ear","ears","head","eye","cheek","cheeks","whisker","beard","nose","snout","snoot","jaw","fang","tooth","mouth","breath","breathe","neck","pelt","hide","fur","hair","fringe","bob","belly","heart","spine","spiny","leg","foot","feet","paw","wing","wings","feather","plume","fin","claw","toe","pad","bean","tail","tassel",
+//pattern/shape
+"stripe","striped","spot","dot","splotch","freckle","speckle","dapple","line","shape","circle","square","cube","sphere","triangle","pyramid","hex","hexagon","round","arc",
+//number/amount
+"first","second","third","half","quarter","phase","part","partial","dual","duo","triple","less","more",
+//greek alphabet
+"alpha","beta","gamma","delta","epsilon","zeta","theta","iota","kappa","lambda","omicron","sigma","omega",
+// emotion
+"happy","hope","dread","joy","sad","angry","anger","mourn",
+//action
+"walk","walker","run","runner","jump","pounce","leap","clamber","climb","play","dance","dancer","sing","song","music","scratch","hug","kiss","hurt","bite","wound","scar","cry","howl","yowl","yip","bark","growl","snarl","squeak","whine","whistle","yawn","drool","spit","look","sight","see","glare","gaze","glower","hear","listen","dip","dipper","rise","fall",
+//adjective
+"nice","mean","cheeky","bold","cautious","scared","scary","energetic","lazy","social","loner","lone","trick","tricky","rough","soft","hard","smooth"
+]; // the last word in the list shouldn't have a comma afterwards
+
+
+function generateNames() {
+// change text in name field, clearing prev names/default text
+document.getElementById("nameField").innerHTML = "<b>Names: </b><br>";
+// get data from input fields
+namesToGenerate = document.getElementById("namesToGenerate").valueAsNumber;
+wordWeights = [
+document.getElementById("wordWeight1").valueAsNumber, 
+document.getElementById("wordWeight2").valueAsNumber, 
+document.getElementById("wordWeight3").valueAsNumber
+];
+sumOfWeights = wordWeights[0] + wordWeights[1] + wordWeights[2];
+nameType = -1;
+// generates amount of names specified
+while (namesToGenerate > 0) {
+	// does two word names if all odds are 0
+	if (sumOfWeights == 0) {
+		nameType = 2;
+	}
+	//weighted choice if odds are selected
+	else {
+		roll = Math.floor(Math.random() * sumOfWeights + 1);
+		i = 0;
+		done = false;
+		while (i < wordWeights.length && done == false) {
+			if (roll <= wordWeights[i]) {
+				nameType = i + 1;
+				done = true;
+			}
+			roll -= wordWeights[i];
+			i += 1;
+		}
+	}
+	//generate name with one, two or three words
+	name = "name"
+	switch (nameType) {
+		case 1: // one name
+			name = 
+			animalNames[Math.floor(Math.random() * animalNames.length)]
+			break;
+		case 2: // two names
+			name = 
+			animalNames[Math.floor(Math.random() * animalNames.length)] + 
+			animalNames[Math.floor(Math.random() * animalNames.length)]
+			break;
+		case 3: // three names
+			name = 
+			animalNames[Math.floor(Math.random() * animalNames.length)] + 
+			animalNames[Math.floor(Math.random() * animalNames.length)] + 
+			animalNames[Math.floor(Math.random() * animalNames.length)]
+			break;
+		default:
+			name = "error generating name :("
+			break;
+	}
+	//make the first letter of the name capitalized
+	formattedName = "\n" + name[0].toUpperCase() + name.slice(1)
+	//add new name onto the list
+	document.getElementById("nameField").append(formattedName);
+	namesToGenerate -= 1;
+}
+// report how many names are currently in the name array
+document.getElementById("nameListSize").innerHTML = "<i>Generated from a list of " + animalNames.length + " words!</i>";
+}
+
+</script>
+<style>
+body {
+	background-color: #f2ebf9;
+}
+h1 {
+	text-shadow: 2px 2px grey;
+}
+h1, h2, h3, p {
+	font-family: Arial, Helvetica, sans-serif;
+	opacity: 1;
+	color: black;
+}
+#nameField {
+	white-space: pre-line;
+}
+div {
+	background-color: #d7c4ed;
+	border: solid black 1px;
+	padding: 5px;
+	max-width: 500px;
+	text-align: center;
+	margin: 0 auto;
+}
+</style>
+</head>
+<body>
+<br>
+<div>
+<h1>Animal Name Generator</h1>
+<p style="font-style: italic">By AnnoyedWoof356</p>
+<p>Specify how many names you want, then enter the chances of generating names using one, two or three words. If all categories are set to 0, all names will generate using two words.</p>
+</div>
+<br>
+<div>
+<br>
+<label for="namesToGenerate">Names to generate:</label>
+<input type="number" id="namesToGenerate" value="20" min="0" max="100" step="1"></input>
+<br>
+<label for="wordWeight1">1 word odds:</label>
+<input type="number" id="wordWeight1" value="1" min="0" max="100" step="1"></input>
+<br>
+<label for="wordWeight2">2 words odds:</label>
+<input type="number" id="wordWeight2" value="4" min="0" max="100" step="1"></input>
+<br>
+<label for="wordWeight3">3 words odds:</label>
+<input type="number" id="wordWeight3" value="0" min="0" max="100" step="1"></input>
+<br>
+<br>
+<button onclick="generateNames()">Generate Names!</button>
+<br>
+<br>
+</div>
+<br>
+<div>
+<p id="nameField">Names will generate here.</p>
+<p id="nameListSize"></p>
+</div>
+<br>
+<br>
+<br>
+</body>
+</html>
